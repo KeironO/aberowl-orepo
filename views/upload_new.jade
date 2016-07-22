@@ -1,15 +1,10 @@
 extends layout
 
 block title
-  title AberOWL: Add new ontology
-  link(rel='stylesheet', href='/css/base.css')
-  link(rel='stylesheet', href='/css/bootstrap-theme.min.css')
-  link(rel='stylesheet', href='/css/style.css')
-  link(rel="icon" href="http://aber-owl.net/favicon.png")
+  title Upload Ontology - AberOWL: Framework for ontology-based data access in biology
 
 block content
- .container-fluid
-   .jumbotron
+ .container
       form.form-signin(action='/ontology/upload', method='post', role='form', enctype="multipart/form-data")
         h2.form-signin-heading Upload New Ontology
         -if(messages.error) 
@@ -19,18 +14,27 @@ block content
         h5 Here you can upload a new ontology. First you should probably check 
           a(href='/ontology/') here
           span  to see if it has already been uploaded (you can claim ownership for your ontologies). If you don't have an ontology yet, try making one about #{noun}?
-        br
-        input.form-control(name='acronym', type='acronym', placeholder='Ontology Acronym', required='', autofocus='')
-        br
-        input.form-control(name='name', type='name', placeholder='Ontology Name', required='', autofocus='')
-        br
-        textarea.form-control(name='description', type='description', placeholder='Ontology Description', required='', autofocus='')
-        br 
-        span.btn.btn-default.btn-file Choose Ontology File
-          input(name='ontology', type='file')
-        div Or 
-          input.form-control(name='url', placeholder="Enter a URL")
-        br
-        br
-        button.btn.btn-lg.btn-primary.btn-block(type='submit') Upload Ontology
+        form-group.row
+          label.col-sm-2.form-control-label Ontology Acronym:
+          .col-sm-10
+            input.form-control(name='acronym', type='text', placeholder='Ontology Acronym', required)
+        form-group.row
+          label.col-sm-2.form-control-label Ontology Name:
+          .col-sm-10
+            input.form-control(name='name', type='text', placeholder='Ontology Name', required)
+        form-group.row
+          label.col-sm-2.form-control-label Ontology Description:
+          .col-sm-10
+            textarea.form-control(name='description', placeholder='Ontology Description', required)
+        form-group.row
+          label.col-sm-2.form-control-label Upload:
+          .col-sm-10
+            span.btn.btn-default.btn-file Choose Ontology File
+              input(name='ontology', type='file')
+            div Or
+              input.form-control(name='url', placeholder="Enter a URL")
+        form-group.row
+          label.col-sm-2.form-control-label
+          .col-sm-10
+            button.btn.btn-lg.btn-danger.btn-block(type='submit') Submit Ontology
   +footer

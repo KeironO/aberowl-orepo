@@ -12,6 +12,8 @@ mixin footer
             li
               a(href='http://www.biomedcentral.com/1471-2105/16/26') How to cite
             li
+                a(href='/statistics') Statistics
+            li
               a(href='/help') Help
 
 html(lang='en')
@@ -29,7 +31,6 @@ html(lang='en')
 
     body
     .navbar.navbar-static-top.navbar-inverse(role='navigation')
-      .container
         .navbar-header
           a.navbar-brand(href='/') #[img.img-responsive(style="float:left", width=64, src='/logo-owl.png', alt='AberOWL')] AberOWL Repository
         div.navbar-left
@@ -37,7 +38,7 @@ html(lang='en')
             li
               a(href='/ontology') Ontologies #[span.glyphicon.glyphicon-globe]
             li
-              a(href='/ontology/upload') Add Ontology #[span.glyphicon.glyphicon-upload]
+              a(href='/ontology/upload') Upload Ontology #[span.glyphicon.glyphicon-upload]
         -if(user)
           div.navbar-right
               ul.nav.navbar-nav
@@ -54,18 +55,19 @@ html(lang='en')
                     li.dropdown
                         a(href='#',data-toggle='dropdown').dropdown-toggle #[span.glyphicon.glyphicon-user] Register / Log in  #[b.caret]
 
-                        ul.dropdown-menu.login
-                            form.form(action='/login', method='post', role='form')
-                                label Existing user
+                        ul.dropdown-menu
+                            .login
+                                form.form(action='/login', method='post', role='form')
+                                    label Existing user
+                                    div.form-group
+                                        input.form-control(name='username', type='text', placeholder='Username')
+                                    div.form-group
+                                        input.form-control(name='password', type='password', placeholder='Password')
+                                    div.form-group
+                                        button.btn.btn-success(type='submit', style="width:100%;") Log in
                                 div.form-group
-                                    input.form-control(name='username', type='text', placeholder='Username')
-                                div.form-group
-                                    input.form-control(name='password', type='password', placeholder='Password')
-                                div.form-group
-                                    button.btn.btn-success(type='submit', style="width:100%;") Log in
-                            div.form-group
-                                label Not currently registered?
-                                a.btn.btn.btn-danger(href='/register', style="width:100%;") Register
+                                    label Not currently registered?
+                                    a.btn.btn.btn-danger(href='/register', style="width:100%;") Register
 
 
     block content

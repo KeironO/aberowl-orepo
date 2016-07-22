@@ -14,7 +14,7 @@ body {
 
 .container {
     width: auto 0 auto;
-    max-width: 95%;
+    max-width: 80%;
 }
 
 
@@ -35,9 +35,7 @@ body {
     margin-bottom:0px;
 }
 
-.navbar-inverse .dropdown-menu {
-    width: 225px !important;
-}
+
 
 .navbar-inverse .navbar-brand {
     color: #fff;
@@ -62,5 +60,10 @@ body {
 
 .dropdown-menu {
     color:#000;
-    padding:15px;
+}
+
+.dropdown-menu .login {
+    width:225px;
+    padding:20px;
+    padding-bottom:0px;
 }
