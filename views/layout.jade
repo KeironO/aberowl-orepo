@@ -1,0 +1,91 @@
+doctype html
+
+mixin footer
+  .footer(footer)
+    div.container.text-center
+      p AberOWL is jointly developed by researchers from <a href="http://www.kaust.edu.sa/faculty/hoehndorf.html">King Abdullah University of Science and Technology</a>, the <a href="http://www.birmingham.ac.uk/research/activity/mds/centres/computational-biology/index.aspx">University of Birmingham</a>, and the <a href="http://www.pdn.cam.ac.uk/staff/schofield/index.shtml">University of Cambridge</a>.
+          ul.nav.navbar-nav(style='display:inline-block;float:none;vertical-align:top;text-align:center;')
+            li
+              a(href='https://github.com/bio-ontology-research-group') Source code
+            li
+              a(href='https://github.com/bio-ontology-research-group/aberowl-orepo/issues') Issue tracker
+            li
+              a(href='http://www.biomedcentral.com/1471-2105/16/26') How to cite
+            li
+              a(href='/help') Help
+
+html(lang='en')
+  head
+    block title
+        title AberOWL: Framework for ontology-based data access in biology
+    meta(charset='utf-8')
+    meta(http-equiv='content-language', content='en-us')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel="icon" href="http://aber-owl.net/favicon.png")
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/style.css')
+
+
+    body
+    .navbar.navbar-static-top.navbar-inverse(role='navigation')
+      .container
+        .navbar-header
+          a.navbar-brand(href='/') #[img.img-responsive(style="float:left", width=64, src='/logo-owl.png', alt='AberOWL')] AberOWL Repository
+        div.navbar-left
+          ul.nav.navbar-nav
+            li
+              a(href='/ontology') Ontologies #[span.glyphicon.glyphicon-globe]
+            li
+              a(href='/ontology/upload') Add Ontology #[span.glyphicon.glyphicon-upload]
+        -if(user)
+          div.navbar-right
+              ul.nav.navbar-nav
+                  li.dropdown
+                      a(href='#',data-toggle='dropdown').dropdown-toggle #[span.glyphicon.glyphicon-user] Logged in as #{user.username} #[b.caret]
+                      ul.dropdown-menu
+                        li
+                          a(href='/user/#{user.username}') Your Ontologies
+                        li
+                            a(href='#') Log Off
+        - else
+            div.navbar-right
+                ul.nav.navbar-nav
+                    li.dropdown
+                        a(href='#',data-toggle='dropdown').dropdown-toggle #[span.glyphicon.glyphicon-user] Register / Log in  #[b.caret]
+
+                        ul.dropdown-menu.login
+                            form.form(action='/login', method='post', role='form')
+                                label Existing user
+                                div.form-group
+                                    input.form-control(name='username', type='text', placeholder='Username')
+                                div.form-group
+                                    input.form-control(name='password', type='password', placeholder='Password')
+                                div.form-group
+                                    button.btn.btn-success(type='submit', style="width:100%;") Log in
+                            div.form-group
+                                label Not currently registered?
+                                a.btn.btn.btn-danger(href='/register', style="width:100%;") Register
+
+
+    block content
+
+    +footer
+
+    block scripts
+        script(src='/js/jquery.min.js')
+        script(src='/js/bootstrap.min.js')
+        script.
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date();
+                    a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+                    a.async = 1;
+                    a.src = g;
+                    m.parentNode.insertBefore(a, m)
+                })
+                (window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');  ga('create', 'UA-59233722-1', 'auto');ga('require', 'linkid', 'linkid.js');
+                ga('send', 'pageview');

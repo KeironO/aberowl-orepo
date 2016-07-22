@@ -1,4 +1,6 @@
-extends template
+extends layout
+
+
 
 block title
     title AberOWL: Framework for ontology-based data access in biology
@@ -6,20 +8,19 @@ block title
     meta(name='description', content='AberOWL repository of ontologies which provides access to OWL reasoning over the ontologies')
 
 
-
 block content
     .jumbotron
         .container
-            h1(align='center')
-                span AberOWL ontology repository and semantic search engine
+            h1(align='center') AberOWL
+            h2(align='center') An ontology repository and semantic search engine
             div
-                p(style='font-size:18px;display: inline-block;') Type any term or phrase to search the AberOWL ontology repository for a class that is described using the phrase (try <a href='#!pancreas' onclick='javascript:$("#search").val("pancreas");doSearch();$("#ctabhead").click();'>pancreas</a>, <a href='#!PATO:0001234' onclick='javascript:$("#search").val("PATO:0001234");doSearch();$("#ctabhead").click();'>PATO:0001234</a>, <a href='#!sugar binding go' onclick='javascript:$("#search").val("sugar binding go");doSearch();$("#ctabhead").click();'>sugar binding GO</a>), for ontologies that use the phrase in their description (try  <a href='#!integrated upper ontology' integrated upper ontology onclick='javascript:$("#search").val("integrated upper ontology");doSearch();$("#otabhead").click();'>integrated upper ontology</a>, <a href='#!infectious disease' onclick='javascript:$("#search").val("infectious disease");doSearch();$("#otabhead").click();'>infectious disease</a>, <a href='#!GFO' onclick='javascript:$("#search").val("GFO");doSearch();$("#otabhead").click();'>GFO</a> or <a href='#!pathology' onclick='javascript:$("#search").val("pathology");doSearch();$("#otabhead").click();'>pathology</a>), or perform a Description Logic query across all ontologies in AberOWL (try <a href='#!&#39;part of&#39; some &#39;apoptotic process&#39 and regulates some &#39;apoptotic process&#39' onclick='javascript:$("#search").val("&#39;part of&#39; some &#39;apoptotic process&#39 and regulates some &#39;apoptotic process&#39;");$("input:radio[name=type]").filter("[value=subeq]").prop("checked", true);doSearch();$("#mtabhead").click();'>'part of' some 'apoptotic process' and regulates some 'apoptotic process'</a> ):
+                h6 Type any term or phrase to search the AberOWL ontology repository for a class that is described using the phrase (try <a href='#!pancreas' onclick='javascript:$("#search").val("pancreas");doSearch();$("#ctabhead").click();'>pancreas</a>, <a href='#!PATO:0001234' onclick='javascript:$("#search").val("PATO:0001234");doSearch();$("#ctabhead").click();'>PATO:0001234</a>, <a href='#!sugar binding go' onclick='javascript:$("#search").val("sugar binding go");doSearch();$("#ctabhead").click();'>sugar binding GO</a>), for ontologies that use the phrase in their description (try  <a href='#!integrated upper ontology' integrated upper ontology onclick='javascript:$("#search").val("integrated upper ontology");doSearch();$("#otabhead").click();'>integrated upper ontology</a>, <a href='#!infectious disease' onclick='javascript:$("#search").val("infectious disease");doSearch();$("#otabhead").click();'>infectious disease</a>, <a href='#!GFO' onclick='javascript:$("#search").val("GFO");doSearch();$("#otabhead").click();'>GFO</a> or <a href='#!pathology' onclick='javascript:$("#search").val("pathology");doSearch();$("#otabhead").click();'>pathology</a>), or perform a Description Logic query across all ontologies in AberOWL (try <a href='#!&#39;part of&#39; some &#39;apoptotic process&#39 and regulates some &#39;apoptotic process&#39' onclick='javascript:$("#search").val("&#39;part of&#39; some &#39;apoptotic process&#39 and regulates some &#39;apoptotic process&#39;");$("input:radio[name=type]").filter("[value=subeq]").prop("checked", true);doSearch();$("#mtabhead").click();'>'part of' some 'apoptotic process' and regulates some 'apoptotic process'</a> ):
             div
                 center
                     div.input-group
                         input#search.form-control(placeholder='Enter a Search Query', type='text', autofocus='autofocus')
                         span.input-group-btn
-                            button#sbutton.btn.btn-default(onclick='doSearch();') Query
+                            button#sbutton.btn.btn-danger(onclick='doSearch();') #[span.glyphicon.glyphicon-search] Query
             div#tabs(style='display:none;')
                 ul
                     li
@@ -66,3 +67,5 @@ block content
                                 th OWL Class
                                 th Definition
 +footer
+
+

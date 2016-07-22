@@ -8,14 +8,24 @@ block title
   link(rel="icon" href="http://aber-owl.net/favicon.png")
 
 block content
- .container-fluid
-   .jumbotron
+ .container
+      h2 Account Registration
+      p Sign up for an AberOWL account by completing the following form:
       form.form-signin(action='/register', method='post', role='form')
-        h2.form-signin-heading Register
-        p #{msg}
-        input.form-control(name='username', type='username', placeholder='Username', required='', autofocus='')
-        input.form-control(name='email', type='email', placeholder='Email address', required='')
-        input.form-control(name='password', type='password', placeholder='Password', required='')
-        br
-        button.btn.btn-lg.btn-primary.btn-block(type='submit') Register
-  +footer
+          form-group.row
+            label.col-sm-2.form-control-label Username:
+            .col-sm-10
+              input.form-control(name='username', type='text', placeholder='Username', required)
+          form-group.row
+            label.col-sm-2.form-control-label Email Address:
+            .col-sm-10
+                input.form-control(name='email', class="form-control", type='email', placeholder='Email Address', required)
+          form-group.row
+              label.col-sm-2.form-control-label Password:
+              .col-sm-10
+                  input.form-control(name='password', class="form-control", type='password', placeholder='Password', required)
+          form-group.row
+              label.col-sm-2.form-control-label
+              .col-sm-10
+                  button.btn.btn-lg.btn-danger.btn-block(type='submit') Register
+    +footer

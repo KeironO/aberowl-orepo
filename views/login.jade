@@ -10,16 +10,24 @@ block title
   link(rel='stylesheet', href='/css/style.css')
 
 block content
-  .container-fluid
-    .jumbotron
-      -if(messages.error) 
-        div.alert.alert-danger(role='alert')
-          span.glyphicon.glyphicon-exclamation-sign(aria-hidden='true')
-          span &nbsp; Error: #{messages.error}
-      form.form-signin(action='/login', method='post', role='form')
-        h2.form-signin-heading Log In
-        input.form-control(name='username', type='username', placeholder='Username', required='', autofocus='')
-        input.form-control(name='password', type='password', placeholder='Password', required='')
-        br
-        button.btn.btn-lg.btn-primary.btn-block(type='submit') Login
+  .container
+    h2 Log In
+    -if(messages.error)
+      div.alert.alert-danger(role='alert')
+        span.glyphicon.glyphicon-exclamation-sign(aria-hidden='true')
+        span &nbsp; Error: #{messages.error}
+    form.form-signin(action='/login', method='post', role='form')
+      form-group.row
+        label.col-sm-2.form-control-label Username:
+        .col-sm-10
+          input.form-control(name='username', type='text', placeholder='Username', required)
+      form-group.row
+        label.col-sm-2.form-control-label Password:
+        .col-sm-10
+          input.form-control(name='password', class="form-control", type='password', placeholder='Password', required)
+      form-group.row
+        label.col-sm-2.form-control-label
+        .col-sm-10
+          button.btn.btn-lg.btn-success.btn-block(type='submit') Login
+
   +footer
