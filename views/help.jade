@@ -1,7 +1,7 @@
-extends layout
+extends template
 
 block title
-  title AberOWL: Help pages
+  title Help pages
   meta(name='title', content='AberOWL help pages')
   meta(name='description', content='AberOWL API documentation and help pages')
   link(rel='stylesheet', href='/css/base.css')
@@ -9,9 +9,7 @@ block title
   link(rel='stylesheet', href='/css/style.css')
 
 block content
-  .container-fluid
-    .starter-template
-
+  .container
       h1 AberOWL Help
 
       p. 
@@ -124,8 +122,7 @@ block content
         b http://aber-owl.net/service/api/
 
       h3.api 
-        span.glyphicon.glyphicon-circle-arrow-right
-        span.api-text runQuery.groovy
+        span.api-text #[span.glyphicon.glyphicon-circle-arrow-right] runQuery.groovy
 
       span This runs a Manchester OWL Syntax query against the server.
 
@@ -186,8 +183,7 @@ block content
             td Whether to retrieve only direct subclasses or superclasses. Ignored for equivalent queries.
 
       h3.api 
-        span.glyphicon.glyphicon-circle-arrow-right
-        span.api-text queryNames.groovy
+        span.api-text #[span.glyphicon.glyphicon-circle-arrow-right]  queryNames.groovy
 
       span This provides partial matches on labels.
 
@@ -220,8 +216,7 @@ block content
             td An ontology to run the query against. If not provided, query will be run against all ontologies in the repository.
 
       h3.api 
-        span.glyphicon.glyphicon-circle-arrow-right
-        span.api-text getClass.groovy
+        span.api-text #[span.glyphicon.glyphicon-circle-arrow-right] getClass.groovy
 
       span Retrieve one particular class from an ontology, by label name.
 
@@ -249,8 +244,7 @@ block content
             td An ontology to run the query against. 
 
       h3.api 
-        span.glyphicon.glyphicon-circle-arrow-right
-        span.api-text findRoot.groovy
+        span.api-text #[span.glyphicon.glyphicon-circle-arrow-right] findRoot.groovy
 
       span Given a reference to a particular class by label and ontology, retrieve a route back to the root of the ontology.
 
@@ -278,8 +272,7 @@ block content
             td An ontology to run the query against. 
 
       h3.api 
-        span.glyphicon.glyphicon-circle-arrow-right
-        span.api-text getStats.groovy
+        span.api-text #[span.glyphicon.glyphicon-circle-arrow-right] getStats.groovy
 
       span This provides stats on either one ontology, or all ontologies in the database.
 
@@ -301,14 +294,12 @@ block content
             td An ontology to retrieve stats for. If not provided, total stats will be returned for the whole repository.
 
       h3.api 
-        span.glyphicon.glyphicon-circle-arrow-right
-        span.api-text listOntologies.groovy
+        span.api-text #[span.glyphicon.glyphicon-circle-arrow-right] listOntologies.groovy
 
       span Return a list of all the ontologies in the repository.
 
       h3.api 
-        span.glyphicon.glyphicon-circle-arrow-right
-        span.api-text getStatuses.groovy
+        span.api-text #[span.glyphicon.glyphicon-circle-arrow-right] getStatuses.groovy
 
       span Return a list of all the ontologies in the repository, with associated load statuses.
 
@@ -374,5 +365,6 @@ block content
       h3.api How do I cite AberOWL?
 
       p To cite AberOWL, please use the following reference:
-      p <a href=http://www.biomedcentral.com/1471-2105/16/26>AberOWL: a framework for ontology-based data access in biology</a>. Hoehndorf, R; Slater, L; Schofield, PN; Gkoutos, Georgios V. BMC Bioinformatics 16:26, 2015.
-  +footer
+      code <a href=http://www.biomedcentral.com/1471-2105/16/26>AberOWL: a framework for ontology-based data access in biology</a>. Hoehndorf, R; Slater, L; Schofield, PN; Gkoutos, Georgios V. BMC Bioinformatics 16:26, 2015.
+
+    +footer
